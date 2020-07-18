@@ -2,6 +2,7 @@ package com.fabricio.chatfirebase;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,15 +31,21 @@ public class MainActivity extends AppCompatActivity {
         mbuttonEnter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-
-
                 //testar no logcat se esta aparecendo o email e senha quando digita
                 String email = meditemail.getText().toString();
                 String pass = meditpassword.getText().toString();
                 Log.i("teste",email);
                 Log.i("teste",pass);
-                
+
+            }
+        });
+
+        //ação quando clicar no texto, (criar conta) redireciona para tela
+        mtxtaccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,RegisterActivity.class);
+                startActivity(intent);
             }
         });
 
